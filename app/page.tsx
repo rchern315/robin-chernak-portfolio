@@ -2,9 +2,21 @@ import Link from "next/link";
 import { notes } from "@/lib/notes";
 
 const tech = [
-  "React", "Next.js", "TypeScript", "JavaScript", "Python", "PowerShell",
-  "SQL", "Vercel", "Azure DevOps", "GitHub", "Sitecore SXA",
-  "Builder.io", "Salsify", "Solr", "Supabase"
+  { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
+  { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
+  { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
+  { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E" },
+  { name: "Python", icon: "https://cdn.simpleicons.org/python/3776AB" },
+  { name: "PowerShell", icon: "https://cdn.simpleicons.org/powershell/5391FE" },
+  { name: "SQL", icon: "https://cdn.simpleicons.org/mysql/4479A1" },
+  { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/FFFFFF" },
+  { name: "Azure DevOps", icon: "https://cdn.simpleicons.org/azuredevops/0078D7" },
+  { name: "GitHub", icon: "https://cdn.simpleicons.org/github/FFFFFF" },
+  { name: "Sitecore SXA", icon: "https://cdn.simpleicons.org/sitecore/EB1F1F" },
+  { name: "Builder.io", icon: "https://cdn.simpleicons.org/builderdotio/A97BFF" },
+  { name: "Salsify", icon: "https://cdn.simpleicons.org/salsify/4C2BD9" },
+  { name: "Solr", icon: "https://cdn.simpleicons.org/apachesolr/D9411E" },
+  { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase/3FCF8E" }
 ];
 
 const projects = [
@@ -116,25 +128,15 @@ export default function Home() {
       </section>
 
       <section className="tech-strip" aria-label="Tech stack">
+        <div className="section-label tech-strip-label">TECH STACK</div>
         <div className="tech-marquee">
           <div className="tech-marquee-track">
-            <img
-              className="tech-stack-image"
-              src="/mockup/tech-stack-exact.png"
-              alt="Tech stack: React, Next.js, TypeScript, JavaScript, Python, PowerShell, SQL, Vercel, Azure DevOps, GitHub, Sitecore SXA, Builder.io, Salsify, Solr, and Supabase"
-            />
-            <img
-              className="tech-stack-image"
-              src="/mockup/tech-stack-exact.png"
-              alt=""
-              aria-hidden="true"
-            />
-            <img
-              className="tech-stack-image"
-              src="/mockup/tech-stack-exact.png"
-              alt=""
-              aria-hidden="true"
-            />
+            {[...tech, ...tech].map((item, index) => (
+              <div className="tech-card" key={item.name + "-" + index}>
+                <img className="tech-icon" src={item.icon} alt="" aria-hidden="true" />
+                <span>{item.name}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
