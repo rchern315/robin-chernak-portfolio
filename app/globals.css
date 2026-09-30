@@ -71,3 +71,25 @@
     height:112px;
   }
 }
+
+/* Remove the visible gap at the marquee seam */
+.tech-marquee-track{
+  gap:0;
+}
+.tech-stack-image{
+  width:1186px;
+  height:135px;
+}
+.tech-stack-image + .tech-stack-image{
+  margin-left:-14px;
+}
+@keyframes tech-scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-1172px)}
+}
+@media(max-width:640px){
+  .tech-stack-image{
+    width:1186px;
+    height:135px;
+  }
+}
