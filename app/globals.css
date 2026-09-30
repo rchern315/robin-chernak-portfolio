@@ -27,3 +27,47 @@
   stroke-linecap:round;
   stroke-linejoin:round;
 }
+
+/* Scrolling tech stack */
+.tech-strip{
+  padding:0;
+  overflow:hidden;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.tech-marquee{
+  overflow:hidden;
+  width:100%;
+}
+.tech-marquee-track{
+  display:flex;
+  width:max-content;
+  animation:tech-scroll 28s linear infinite;
+}
+.tech-marquee:hover .tech-marquee-track{
+  animation-play-state:paused;
+}
+.tech-stack-image{
+  flex:0 0 auto;
+  width:auto;
+  height:132px;
+  max-width:none;
+  display:block;
+}
+@keyframes tech-scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@media (prefers-reduced-motion: reduce){
+  .tech-marquee{
+    overflow-x:auto;
+  }
+  .tech-marquee-track{
+    animation:none;
+  }
+}
+@media(max-width:640px){
+  .tech-stack-image{
+    height:112px;
+  }
+}
