@@ -129,6 +129,12 @@ export default function Home() {
               alt=""
               aria-hidden="true"
             />
+            <img
+              className="tech-stack-image"
+              src="/mockup/tech-stack-marquee.png"
+              alt=""
+              aria-hidden="true"
+            />
           </div>
         </div>
       </section>
