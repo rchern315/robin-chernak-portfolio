@@ -1,146 +1,134 @@
 import Link from "next/link";
 import { notes } from "@/lib/notes";
 
-const capabilities = [
-  { title: "Applications", text: "React, Next.js, TypeScript, APIs, authentication, data-backed workflows, and the glue that turns separate services into one useful product." },
-  { title: "Platforms", text: "Enterprise CMS, headless architecture, search, deployment workflows, environment troubleshooting, and systems that have to keep working after launch." },
-  { title: "Automation", text: "PowerShell, Python, SQL, validation frameworks, migration tooling, and scripts built to make repetitive work somebody else's problem." },
-  { title: "AI", text: "AI-enabled applications, Python APIs, model integrations, prototyping, and the platform questions behind operating AI responsibly at scale." }
+const tech = [
+  "React", "Next.js", "TypeScript", "JavaScript", "Python", "PowerShell",
+  "SQL", "Vercel", "Azure DevOps", "GitHub", "Sitecore SXA",
+  "Builder.io", "Salsify", "Solr", "Supabase"
 ];
 
 const projects = [
   {
     title: "BlendBase",
-    type: "Full-Stack Application",
-    description: "A recipe platform with Supabase authentication, OAuth, PostgreSQL-backed CRUD workflows, reviews, ratings, image storage, protected routes, and a responsive React interface.",
-    tags: ["React", "Supabase", "PostgreSQL", "Vite", "Vercel"],
-    github: "https://github.com/rchern315/blendbase",
+    description: "Full-stack application with authentication, recipe management, ratings, search, and a Supabase backend.",
+    tags: ["React", "Supabase", "Vite", "Vercel"],
     live: "https://blendbase.vercel.app",
-    accent: "blend"
+    github: "https://github.com/rchern315/blendbase",
+    kind: "blend"
   },
   {
     title: "Central Intelligence",
-    type: "Data & Platform Application",
-    description: "A data-driven dashboard architecture that separates ingestion and processing from the UI, uses Supabase as the shared data layer, and presents news, sentiment, market data, filters, and charts.",
-    tags: ["React", "Supabase", "Data Pipeline", "Recharts", "Vercel"],
-    github: "https://github.com/rchern315/central-intelligence-ui",
+    description: "Internal dashboard and automation platform for brand news, data aggregation, analytics, and reporting.",
+    tags: ["React", "Supabase", "Data Pipeline", "Vercel"],
     live: "https://central-intelligence-ui.vercel.app/",
-    accent: "intel"
+    github: "https://github.com/rchern315/central-intelligence-ui",
+    kind: "intel"
   },
   {
-    title: "AdSpark",
-    type: "AI-Enabled Product",
-    description: "An evolving Next.js application for AI-assisted ad creation, media management, configurable placements, and reusable ad-delivery workflows.",
-    tags: ["Next.js", "TypeScript", "AI APIs", "Media", "Vercel"],
-    github: "https://github.com/rchern315/random-ad-generator",
+    title: "Random Ad Generator",
+    description: "AI-enabled application for generating ad creative, managing media assets, and reusable ad workflows.",
+    tags: ["Next.js", "TypeScript", "AI", "Vercel"],
     live: null,
-    accent: "spark"
+    github: "https://github.com/rchern315/random-ad-generator",
+    kind: "ads"
   }
 ];
 
-const experience = [
-  {
-    years: "2024 — Present",
-    role: "Full-Stack Software Engineer",
-    company: "Central Garden & Pet",
-    text: "Expanded scope across application development, platform support, automation, integrations, DevOps, data workflows, production reliability, and AI-enabled solutions across a large enterprise portfolio."
-  },
-  {
-    years: "2016 — 2023",
-    role: "Senior Front-End Engineer",
-    company: "Central Garden & Pet",
-    text: "Led front-end engineering across enterprise brands, building reusable component systems, CMS solutions, integrations, accessible interfaces, and shared engineering patterns."
-  },
-  {
-    years: "2014 — 2016",
-    role: "Front-End Developer",
-    company: "Central Garden & Pet",
-    text: "Built responsive digital experiences and reusable front-end components while supporting CMS implementations, accessibility, browser compatibility, and production troubleshooting."
-  }
+const stats = [
+  { value: "65+", label: "Websites & Brands Supported" },
+  { value: "Automation", label: "Manual Work Reduced" },
+  { value: "Data Integration", label: "Systems Connected" },
+  { value: "Scalable Solutions", label: "Built for Enterprise Use" }
 ];
 
 export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Robin Chernak home">RC<span>.</span></a>
+        <a className="brand-name" href="#top">Robin Chernak</a>
         <nav aria-label="Primary navigation">
-          <a href="#work">Work</a>
+          <a href="#top">Home</a>
+          <a href="#about">About</a>
+          <a href="#work">Projects</a>
           <a href="#case-studies">Case Studies</a>
-          <a href="#notes">Engineering Notes</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
         </nav>
+        <a className="nav-cta" href="#contact">Let&apos;s Connect</a>
       </header>
 
       <section className="hero section" id="top">
-        <div className="hero-copy">
-          <div className="eyebrow">FULL-STACK SOFTWARE ENGINEER</div>
-          <h1>I build systems that <span>work in the real world.</span></h1>
-          <p className="hero-lede">
-            Applications, internal tools, automation, integrations, platform reliability, and AI-enabled systems — with a soft spot for the problems that start with, “Okay, this is weird.”
+        <div className="hero-main">
+          <div className="hero-kicker">Hi, I&apos;m</div>
+          <h1>Robin Chernak</h1>
+          <h2>Full-Stack Software Engineer</h2>
+          <p>
+            Building applications, internal tools, automation, integrations,
+            and AI-enabled systems across complex enterprise environments.
           </p>
+          <div className="focus-line">
+            <span>Full-Stack Engineering</span>
+            <span>Platform Engineering</span>
+            <span>AI</span>
+            <span>Automation</span>
+            <span>DevOps</span>
+            <span>Data & Integrations</span>
+          </div>
           <div className="hero-actions">
-            <a className="button primary" href="#work">See my work</a>
+            <a className="button primary" href="#work">View My Work →</a>
             <a className="button secondary" href="https://github.com/rchern315" target="_blank" rel="noreferrer">GitHub ↗</a>
           </div>
-          <div className="focus-row">
-            <span>Full-Stack</span><span>Platform Engineering</span><span>AI</span><span>Automation</span><span>DevOps</span><span>Data & Integrations</span>
-          </div>
         </div>
 
-        <div className="hero-panel">
-          <div className="terminal-bar"><span /><span /><span /></div>
-          <div className="terminal-body">
-            <div className="terminal-label">robin.profile()</div>
-            <pre>{'{\n  role: "Full-Stack Software Engineer",\n  experience: "12+ years",\n  portfolio: "65+ sites & brands",\n  likes: ["solving the weird stuff", "automation",\n          "clean architecture", "shipping useful things"],\n  currentlyExploring: "AI platforms"\n}'}</pre>
+        <aside className="hero-side">
+          <blockquote>
+            “I enjoy solving complex problems and building solutions that are scalable,
+            reliable, and make engineering teams more efficient.”
+          </blockquote>
+          <div className="hero-rule" />
+          <div className="hero-capabilities">
+            <div><b>⌘</b><span>Build<br />Applications</span></div>
+            <div><b>⚙</b><span>Automate<br />Workflows</span></div>
+            <div><b>⌁</b><span>Integrate<br />Systems</span></div>
+            <div><b>AI</b><span>Apply<br />AI</span></div>
           </div>
+        </aside>
+      </section>
+
+      <section className="tech-strip">
+        <div className="section-label">TECH STACK</div>
+        <div className="tech-grid">
+          {tech.map((item) => <div className="tech-card" key={item}>{item}</div>)}
         </div>
       </section>
 
-      <section className="section compact">
-        <div className="section-heading">
-          <div><div className="eyebrow">WHAT I DO</div><h2>More than “web stuff.”</h2></div>
-          <p>I work across the application, data, platform, and operational layers — wherever the problem actually lives.</p>
-        </div>
-        <div className="capability-grid">
-          {capabilities.map((item, index) => (
-            <article className="capability-card" key={item.title}>
-              <span className="card-number">0{index + 1}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section" id="work">
-        <div className="section-heading">
-          <div><div className="eyebrow">SELECTED WORK</div><h2>Projects with some teeth.</h2></div>
-          <p>Not a wall of tutorial projects. These are the builds that best represent how I think about applications, systems, and engineering tradeoffs.</p>
+      <section className="section work-section" id="work">
+        <div className="section-topline">
+          <div className="section-label">FEATURED PROJECTS</div>
+          <a href="https://github.com/rchern315" target="_blank" rel="noreferrer">View all projects →</a>
         </div>
 
-        <div className="project-grid">
+        <div className="featured-grid">
           {projects.map((project) => (
-            <article className={"project-card " + project.accent} key={project.title}>
-              <div className="project-visual">
-                <div className="project-browser">
-                  <div className="browser-dots"><span /><span /><span /></div>
-                  <div className="visual-content">
-                    <span>{project.type}</span>
-                    <strong>{project.title}</strong>
-                    <div className="visual-lines"><i /><i /><i /></div>
+            <article className="featured-card" key={project.title}>
+              <div className={"project-shot " + project.kind}>
+                <div className="shot-window">
+                  <div className="shot-nav"><span>{project.title}</span><i /><i /><i /></div>
+                  <div className="shot-body">
+                    <strong>{project.kind === "blend" ? "Find Your Perfect Blend" : project.kind === "intel" ? "Brand Intelligence" : "Create High-Performing Ads with AI"}</strong>
+                    <div className="shot-bars"><i /><i /><i /><i /></div>
                   </div>
                 </div>
               </div>
-              <div className="project-content">
-                <div className="project-type">{project.type}</div>
+              <div className="featured-content">
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
-                <div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                <div className="tag-row">
+                  {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
+                </div>
                 <div className="project-links">
-                  {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live demo ↗</a>}
-                  <a href={project.github} target="_blank" rel="noreferrer">View code ↗</a>
+                  {project.live && <a className="small-button primary" href={project.live} target="_blank" rel="noreferrer">Live Demo ↗</a>}
+                  <a className="small-button secondary" href={project.github} target="_blank" rel="noreferrer">View Code</a>
                 </div>
               </div>
             </article>
@@ -148,81 +136,104 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" id="case-studies">
-        <div className="section-heading">
-          <div><div className="eyebrow">CASE STUDIES</div><h2>Real problems. Sanitized details.</h2></div>
-          <p>Enterprise work is often more interesting than what can safely be published in a public repo. These case studies focus on the engineering problem and approach without exposing proprietary code or internal data.</p>
+      <section className="about-stats section" id="about">
+        <div className="about-panel">
+          <div className="mini-avatar">RC</div>
+          <div>
+            <h3>About Me</h3>
+            <p>
+              I&apos;m a Full-Stack Software Engineer focused on building reliable systems,
+              automating complex workflows, integrating enterprise platforms, and solving
+              problems across application, data, infrastructure, and AI layers.
+            </p>
+            <a href="#experience">Learn more about my background →</a>
+          </div>
         </div>
-        <div className="case-grid">
-          <article className="case-card">
-            <div className="case-icon">QA</div>
-            <div><span>Product Data · Automation</span><h3>Automating downstream product QA</h3><p>Built a modular validation framework to compare source product data with rendered downstream output, surface mismatches, and generate review-friendly reports.</p><a href="#notes">Read the engineering note ↓</a></div>
-          </article>
-          <article className="case-card">
-            <div className="case-icon">OPS</div>
-            <div><span>Reliability · DevOps</span><h3>Debugging across the whole request path</h3><p>Troubleshooting production issues across application code, deployments, IIS, search/indexing, infrastructure, APIs, and data — because the browser is not always where the bug started.</p><a href="#notes">Read the engineering note ↓</a></div>
-          </article>
-          <article className="case-card">
-            <div className="case-icon">AI</div>
-            <div><span>AI · Platform Thinking</span><h3>Building AI into products without outsourcing judgment</h3><p>Using AI both as an engineering accelerator and as an application capability, while keeping architecture, security, maintainability, observability, and human ownership in the loop.</p><a href="#notes">Read the engineering note ↓</a></div>
-          </article>
+
+        <div className="stats-panel">
+          <div className="section-label">BY THE NUMBERS</div>
+          <div className="stats-grid">
+            {stats.map((stat) => (
+              <div className="stat-card" key={stat.value}>
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section" id="notes">
-        <div className="section-heading">
-          <div><div className="eyebrow">ENGINEERING NOTES</div><h2>Things I learned the non-boring way.</h2></div>
-          <p>Practical notes from building, debugging, automating, and occasionally asking a system why it chose chaos today.</p>
+      <section className="bottom-grid section" id="case-studies">
+        <div>
+          <div className="section-topline">
+            <h3>Case Studies</h3>
+            <a href="#notes">View engineering notes →</a>
+          </div>
+          <div className="case-list">
+            <article>
+              <div className="case-badge">QA</div>
+              <div>
+                <h4>Enterprise Product Data QA Automation</h4>
+                <p>Automated validation across source and downstream systems, reducing manual QA and improving data consistency.</p>
+                <Link href="/engineering-notes/product-qa-salsify-downstream-platforms">Read Case Study →</Link>
+              </div>
+            </article>
+            <article>
+              <div className="case-badge">OPS</div>
+              <div>
+                <h4>Enterprise Platform Support & Stability</h4>
+                <p>Troubleshooting production issues across IIS, search, deployments, integrations, infrastructure, and application layers.</p>
+                <Link href="/engineering-notes/troubleshooting-enterprise-platforms">Read Case Study →</Link>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div className="contact-panel" id="contact">
+          <div className="contact-copy">
+            <h3>Let&apos;s Connect</h3>
+            <p>I&apos;m always interested in discussing new opportunities, interesting projects, or ways to collaborate.</p>
+            <div className="contact-links">
+              <a className="small-button primary" href="https://www.linkedin.com/in/robin-chernak-967aa1150/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a className="small-button secondary" href="https://github.com/rchern315" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+          <div className="contact-art" aria-hidden="true" />
+        </div>
+      </section>
+
+      <section className="section notes-section" id="notes">
+        <div className="section-topline">
+          <div>
+            <div className="section-label">ENGINEERING NOTES</div>
+            <h3>Things I learned the non-boring way.</h3>
+          </div>
         </div>
         <div className="notes-grid">
           {notes.map((note) => (
-            <Link href={"/engineering-notes/" + note.slug} className="note-card" key={note.slug}>
-              <span>{note.eyebrow}</span><h3>{note.title}</h3><p>{note.summary}</p>
-              <div>{note.readingTime} <b>Read →</b></div>
+            <Link className="note-card" href={"/engineering-notes/" + note.slug} key={note.slug}>
+              <span>{note.eyebrow}</span>
+              <h4>{note.title}</h4>
+              <p>{note.summary}</p>
+              <b>Read →</b>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="section" id="experience">
-        <div className="section-heading">
-          <div><div className="eyebrow">EXPERIENCE</div><h2>Built over time. Broadened on purpose.</h2></div>
-          <p>My foundation is front-end engineering. My work grew from there into integrations, automation, platform operations, data, full-stack development, and AI.</p>
-        </div>
-        <div className="timeline">
-          {experience.map((item) => (
-            <article key={item.years + item.role}>
-              <div className="timeline-years">{item.years}</div><div className="timeline-dot" />
-              <div className="timeline-content"><h3>{item.role}</h3><span>{item.company}</span><p>{item.text}</p></div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section about-section" id="about">
-        <div><div className="eyebrow">ABOUT</div><h2>I like figuring out how the pieces connect.</h2></div>
-        <div className="about-copy">
-          <p>I am a self-taught software engineer with 12+ years of professional experience, supplemented by college coursework and continued technical training.</p>
-          <p>What keeps me interested is not one framework or one layer of the stack. It is the systems thinking: where the data comes from, what transforms it, what can fail, how teams operate it, and how to make the next person&apos;s job easier.</p>
-          <p>I also genuinely enjoy building things. Sometimes that is an enterprise automation framework. Sometimes it is an AI prototype. Sometimes it starts because I thought, “There has to be a better way to do this.”</p>
-        </div>
-      </section>
-
-      <section className="section contact-section" id="contact">
-        <div className="contact-card">
-          <div className="eyebrow">LET&apos;S CONNECT</div>
-          <h2>Have an interesting problem?</h2>
-          <p>I am always interested in conversations around full-stack engineering, platforms, automation, AI, and the weird technical problems that do not fit neatly into one box.</p>
-          <div className="hero-actions">
-            <a className="button primary" href="https://www.linkedin.com/in/robin-chernak-967aa1150/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-            <a className="button secondary" href="https://github.com/rchern315" target="_blank" rel="noreferrer">GitHub ↗</a>
-          </div>
+      <section className="section experience-section" id="experience">
+        <div className="section-label">EXPERIENCE</div>
+        <h3>Built over time. Broadened on purpose.</h3>
+        <div className="experience-grid">
+          <article><span>2024 — Present</span><h4>Full-Stack Software Engineer</h4><p>Application development, automation, integrations, DevOps, data workflows, production reliability, and AI-enabled solutions.</p></article>
+          <article><span>2016 — 2023</span><h4>Senior Front-End Engineer</h4><p>Enterprise front-end architecture, reusable component systems, CMS solutions, integrations, accessibility, and shared engineering patterns.</p></article>
+          <article><span>2014 — 2016</span><h4>Front-End Developer</h4><p>Responsive interfaces, reusable components, CMS implementation, accessibility, browser compatibility, and production support.</p></article>
         </div>
       </section>
 
       <footer>
         <span>© 2026 Robin Chernak</span>
-        <span>Built with Next.js, TypeScript, and an unreasonable dislike of repetitive work.</span>
+        <span>Built with Next.js and TypeScript.</span>
       </footer>
     </main>
   );
