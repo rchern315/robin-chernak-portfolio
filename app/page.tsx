@@ -1,121 +1,137 @@
 import Link from "next/link";
+import { notes } from "@/lib/notes";
 
 const tech = [
   "React", "Next.js", "TypeScript", "JavaScript", "Python", "PowerShell",
-  "SQL", "Vercel", "Azure DevOps", "GitHub", "Sitecore SXA", "Builder.io",
-  "Salsify", "Solr", "Supabase"
+  "SQL", "Vercel", "Azure DevOps", "GitHub", "Sitecore SXA",
+  "Builder.io", "Salsify", "Solr", "Supabase"
 ];
 
 const projects = [
   {
     title: "BlendBase",
-    image: "/mockup/blendbase.jpg",
     description: "Full-stack application with authentication, recipe management, ratings, search, and a Supabase backend.",
-    tags: ["React", "TypeScript", "Vite", "Supabase", "Tailwind"],
+    tags: ["React", "Supabase", "Vite", "Vercel"],
     live: "https://blendbase.vercel.app",
     github: "https://github.com/rchern315/blendbase",
-    cta: "Live Demo ↗"
+    kind: "blend"
   },
   {
     title: "Central Intelligence",
-    image: "/mockup/central-intelligence.jpg",
-    description: "Internal dashboard and automation platform for brand news, data aggregation, and analytics.",
-    tags: ["Next.js", "React", "Supabase", "TypeScript", "Vercel"],
+    description: "Internal dashboard and automation platform for brand news, data aggregation, analytics, and reporting.",
+    tags: ["React", "Supabase", "Data Pipeline", "Vercel"],
     live: "https://central-intelligence-ui.vercel.app/",
     github: "https://github.com/rchern315/central-intelligence-ui",
-    cta: "View Project →"
+    kind: "intel"
   },
   {
     title: "Random Ad Generator",
-    image: "/mockup/random-ad-generator.jpg",
-    description: "AI-enabled application for generating ad creative, managing media assets, and multi-platform content.",
-    tags: ["Next.js", "TypeScript", "AI", "Vercel", "Tailwind"],
+    description: "AI-enabled application for generating ad creative, managing media assets, and reusable ad workflows.",
+    tags: ["Next.js", "TypeScript", "AI", "Vercel"],
     live: null,
     github: "https://github.com/rchern315/random-ad-generator",
-    cta: "View Code"
+    kind: "ads"
   }
 ];
 
 const stats = [
-  ["65+", "Websites & Brands", "Supported"],
-  ["Automation", "Hours of Manual Work", "Reduced"],
-  ["Data Integration", "Multiple Systems", "Connected"],
-  ["Scalable Solutions", "Enterprise &", "Production Environments"],
+  { value: "65+", label: "Websites & Brands Supported" },
+  { value: "Automation", label: "Manual Work Reduced" },
+  { value: "Data Integration", label: "Systems Connected" },
+  { value: "Scalable Solutions", label: "Built for Enterprise Use" }
 ];
 
 export default function Home() {
   return (
-    <main className="page-shell">
+    <main>
       <header className="site-header">
-        <a className="brand" href="#top">Robin Chernak</a>
-        <nav>
+        <a className="brand-name" href="#top">Robin Chernak</a>
+        <nav aria-label="Primary navigation">
           <a href="#top">Home</a>
           <a href="#about">About</a>
-          <a href="#projects">Projects</a>
+          <a href="#work">Projects</a>
           <a href="#case-studies">Case Studies</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a className="header-cta" href="#contact">Let&apos;s Connect</a>
+        <a className="nav-cta" href="#contact">Let&apos;s Connect</a>
       </header>
 
-      <section className="hero" id="top">
-        <div className="hero-copy">
-          <p className="hero-intro">Hi, I&apos;m</p>
+      <section className="hero section" id="top">
+        <div className="hero-main">
+          <div className="hero-kicker">Hi, I&apos;m</div>
           <h1>Robin Chernak</h1>
           <h2>Full-Stack Software Engineer</h2>
-          <p className="hero-text">
+          <p>
             Building applications, internal tools, automation, integrations,
             and AI-enabled systems across complex enterprise environments.
           </p>
-
-          <div className="hero-focus">
+          <div className="focus-line">
             <span>Full-Stack Engineering</span>
             <span>Platform Engineering</span>
             <span>AI</span>
             <span>Automation</span>
             <span>DevOps</span>
-            <span>Data &amp; Integrations</span>
+            <span>Data & Integrations</span>
           </div>
-
           <div className="hero-actions">
-            <a className="button button-primary" href="#projects">View My Work →</a>
-            <a className="button button-secondary" href="https://github.com/rchern315" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a className="button primary" href="#work">View My Work →</a>
+            <a className="button secondary" href="https://github.com/rchern315" target="_blank" rel="noreferrer">GitHub ↗</a>
           </div>
         </div>
 
-        <div className="hero-right">
-          <img src="/mockup/hero-right.jpg" alt="Problem-solving quote and capabilities" />
-        </div>
-      </section>
-
-      <section className="tech-section">
-        <img src="/mockup/tech-stack.jpg" alt="Tech stack" className="tech-image" />
-      </section>
-
-      <section className="projects-section" id="projects">
-        <div className="section-head">
-          <div>
-            <p className="eyebrow">FEATURED PROJECTS</p>
+        <aside className="hero-side">
+          <blockquote>
+            “I enjoy solving complex problems and building solutions that are scalable,
+            reliable, and make engineering teams more efficient.”
+          </blockquote>
+          <div className="hero-rule" />
+          <div className="hero-capabilities">
+            <div><b>⌘</b><span>Build<br />Applications</span></div>
+            <div><b>⚙</b><span>Automate<br />Workflows</span></div>
+            <div><b>⌁</b><span>Integrate<br />Systems</span></div>
+            <div><b>AI</b><span>Apply<br />AI</span></div>
           </div>
-          <a href="https://github.com/rchern315" target="_blank" rel="noreferrer" className="inline-link">View all projects →</a>
+        </aside>
+      </section>
+
+      <section className="tech-strip">
+        <div className="section-label">TECH STACK</div>
+        <div className="tech-grid">
+          {tech.map((item) => <div className="tech-card" key={item}>{item}</div>)}
+        </div>
+      </section>
+
+      <section className="section work-section" id="work">
+        <div className="section-topline">
+          <div className="section-label">FEATURED PROJECTS</div>
+          <a href="https://github.com/rchern315" target="_blank" rel="noreferrer">View all projects →</a>
         </div>
 
-        <div className="project-grid">
+        <div className="featured-grid">
           {projects.map((project) => (
-            <article className="project-card" key={project.title}>
-              <img src={project.image} alt={project.title + " preview"} className="project-image" />
-              <div className="project-content">
+            <article className="featured-card" key={project.title}>
+              <div className={"project-shot " + project.kind}>
+                <img
+                  src={
+                    project.kind === "blend"
+                      ? "/projects/blendbase.svg"
+                      : project.kind === "intel"
+                        ? "/projects/central-intelligence.svg"
+                        : "/projects/random-ad-generator.svg"
+                  }
+                  alt={project.title + " project preview"}
+                />
+              </div>
+              <div className="featured-content">
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
                 <div className="tag-row">
                   {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
                 </div>
-                <div className="action-row">
-                  {project.live ? (
-                    <a className="button button-primary small" href={project.live} target="_blank" rel="noreferrer">{project.cta}</a>
-                  ) : null}
-                  <a className="button button-secondary small" href={project.github} target="_blank" rel="noreferrer">View Code</a>
+                <div className="project-links">
+                  {project.live && <a className="small-button primary" href={project.live} target="_blank" rel="noreferrer">Live Demo ↗</a>}
+                  <a className="small-button secondary" href={project.github} target="_blank" rel="noreferrer">View Code</a>
                 </div>
               </div>
             </article>
@@ -123,9 +139,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="middle-grid">
-        <div className="about-box" id="about">
-          <img src="/mockup/about-avatar.jpg" alt="Robin Chernak" className="about-avatar" />
+      <section className="about-stats section" id="about">
+        <div className="about-panel">
+          <div className="mini-avatar">RC</div>
           <div>
             <h3>About Me</h3>
             <p>
@@ -133,97 +149,83 @@ export default function Home() {
               automating complex workflows, integrating enterprise platforms, and solving
               problems across application, data, infrastructure, and AI layers.
             </p>
-            <a href="#experience" className="inline-link accent">Learn more about my background →</a>
+            <a href="#experience">Learn more about my background →</a>
           </div>
         </div>
 
-        <div className="numbers-box">
-          <p className="eyebrow">BY THE NUMBERS</p>
+        <div className="stats-panel">
+          <div className="section-label">BY THE NUMBERS</div>
           <div className="stats-grid">
-            {stats.map(([value, line1, line2]) => (
-              <div className="stat-card" key={value + line1}>
-                <strong>{value}</strong>
-                <span>{line1}</span>
-                <span>{line2}</span>
+            {stats.map((stat) => (
+              <div className="stat-card" key={stat.value}>
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bottom-grid" id="case-studies">
-        <div className="case-box">
-          <div className="section-head small-gap">
+      <section className="bottom-grid section" id="case-studies">
+        <div>
+          <div className="section-topline">
             <h3>Case Studies</h3>
-            <a href="#notes" className="inline-link">View all case studies →</a>
+            <a href="#notes">View engineering notes →</a>
           </div>
-
           <div className="case-list">
-            <article className="case-card">
-              <div className="case-icon">▦</div>
+            <article>
+              <div className="case-badge">QA</div>
               <div>
                 <h4>Enterprise Product Data QA Automation</h4>
-                <p>Automated validation framework for Salsify product data across multiple brands, reducing manual QA and improving data consistency.</p>
+                <p>Automated validation across source and downstream systems, reducing manual QA and improving data consistency.</p>
                 <Link href="/engineering-notes/product-qa-salsify-downstream-platforms">Read Case Study →</Link>
               </div>
             </article>
-
-            <article className="case-card">
-              <div className="case-icon">⇄</div>
+            <article>
+              <div className="case-badge">OPS</div>
               <div>
-                <h4>Enterprise Platform Support &amp; Stability</h4>
-                <p>Troubleshot and resolved production issues across IIS, Solr, search, app pools, deployments, and integrations, improving platform reliability and stability.</p>
+                <h4>Enterprise Platform Support & Stability</h4>
+                <p>Troubleshooting production issues across IIS, search, deployments, integrations, infrastructure, and application layers.</p>
                 <Link href="/engineering-notes/troubleshooting-enterprise-platforms">Read Case Study →</Link>
               </div>
             </article>
           </div>
         </div>
 
-        <div className="connect-box" id="contact">
-          <div className="connect-copy">
+        <div className="contact-panel" id="contact">
+          <div className="contact-copy">
             <h3>Let&apos;s Connect</h3>
             <p>I&apos;m always interested in discussing new opportunities, interesting projects, or ways to collaborate.</p>
-            <div className="contact-actions">
-              <a className="button button-primary small" href="https://www.linkedin.com/in/robin-chernak-967aa1150/" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a className="button button-secondary small" href="https://github.com/rchern315" target="_blank" rel="noreferrer">GitHub</a>
+            <div className="contact-links">
+              <a className="small-button primary" href="https://www.linkedin.com/in/robin-chernak-967aa1150/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a className="small-button secondary" href="https://github.com/rchern315" target="_blank" rel="noreferrer">GitHub</a>
             </div>
           </div>
-          <img src="/mockup/contact-bg.jpg" alt="Reno skyline" className="contact-bg" />
+          <div className="contact-art" aria-hidden="true" />
         </div>
       </section>
 
-      <section className="notes-section" id="notes">
-        <div className="section-head small-gap">
+      <section className="section notes-section" id="notes">
+        <div className="section-topline">
           <div>
-            <p className="eyebrow">ENGINEERING NOTES</p>
+            <div className="section-label">ENGINEERING NOTES</div>
             <h3>Things I learned the non-boring way.</h3>
           </div>
         </div>
-
         <div className="notes-grid">
-          <Link href="/engineering-notes/product-qa-salsify-downstream-platforms" className="note-card">
-            <span>Automation · Data · Integrations</span>
-            <h4>Building a Product QA Framework Across Salsify and Downstream Platforms</h4>
-            <p>The product existed. The SKU existed. The page existed. Somehow, none of them agreed with each other.</p>
-            <b>Read →</b>
-          </Link>
-          <Link href="/engineering-notes/troubleshooting-enterprise-platforms" className="note-card">
-            <span>Platform Engineering · Reliability</span>
-            <h4>How I Troubleshoot Enterprise Platforms Across Application, Data, and Infrastructure Layers</h4>
-            <p>A broken page is not always a front-end problem. Sometimes the browser is just where the crime scene happens to be.</p>
-            <b>Read →</b>
-          </Link>
-          <Link href="/engineering-notes/ai-as-an-engineering-tool" className="note-card">
-            <span>AI · Software Engineering</span>
-            <h4>Using AI as an Engineering Tool — Not a Substitute for Engineering</h4>
-            <p>I use AI a lot. I also do not hand it the keys, close my eyes, and hope production is still there in the morning.</p>
-            <b>Read →</b>
-          </Link>
+          {notes.map((note) => (
+            <Link className="note-card" href={"/engineering-notes/" + note.slug} key={note.slug}>
+              <span>{note.eyebrow}</span>
+              <h4>{note.title}</h4>
+              <p>{note.summary}</p>
+              <b>Read →</b>
+            </Link>
+          ))}
         </div>
       </section>
 
-      <section className="experience-section" id="experience">
-        <p className="eyebrow">EXPERIENCE</p>
+      <section className="section experience-section" id="experience">
+        <div className="section-label">EXPERIENCE</div>
         <h3>Built over time. Broadened on purpose.</h3>
         <div className="experience-grid">
           <article><span>2024 — Present</span><h4>Full-Stack Software Engineer</h4><p>Application development, automation, integrations, DevOps, data workflows, production reliability, and AI-enabled solutions.</p></article>
@@ -232,7 +234,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="site-footer">
+      <footer>
         <span>© 2026 Robin Chernak</span>
         <span>Built with Next.js and TypeScript.</span>
       </footer>
