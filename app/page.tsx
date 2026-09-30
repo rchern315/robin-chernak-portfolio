@@ -115,12 +115,22 @@ export default function Home() {
         </aside>
       </section>
 
-      <section className="tech-strip">
-        <img
-          className="tech-stack-image"
-          src="/mockup/tech-stack.jpg"
-          alt="Tech stack: React, Next.js, TypeScript, JavaScript, Python, PowerShell, SQL, Vercel, Azure DevOps, GitHub, Sitecore SXA, Builder.io, Salsify, Solr, and Supabase"
-        />
+      <section className="tech-strip" aria-label="Tech stack">
+        <div className="tech-marquee">
+          <div className="tech-marquee-track">
+            <img
+              className="tech-stack-image"
+              src="/mockup/tech-stack.jpg"
+              alt="Tech stack: React, Next.js, TypeScript, JavaScript, Python, PowerShell, SQL, Vercel, Azure DevOps, GitHub, Sitecore SXA, Builder.io, Salsify, Solr, and Supabase"
+            />
+            <img
+              className="tech-stack-image"
+              src="/mockup/tech-stack.jpg"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+        </div>
       </section>
 
       <section className="section work-section" id="work">
