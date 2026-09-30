@@ -112,13 +112,16 @@ export default function Home() {
           {projects.map((project) => (
             <article className="featured-card" key={project.title}>
               <div className={"project-shot " + project.kind}>
-                <div className="shot-window">
-                  <div className="shot-nav"><span>{project.title}</span><i /><i /><i /></div>
-                  <div className="shot-body">
-                    <strong>{project.kind === "blend" ? "Find Your Perfect Blend" : project.kind === "intel" ? "Brand Intelligence" : "Create High-Performing Ads with AI"}</strong>
-                    <div className="shot-bars"><i /><i /><i /><i /></div>
-                  </div>
-                </div>
+                <img
+                  src={
+                    project.kind === "blend"
+                      ? "/projects/blendbase.svg"
+                      : project.kind === "intel"
+                        ? "/projects/central-intelligence.svg"
+                        : "/projects/random-ad-generator.svg"
+                  }
+                  alt={project.title + " project preview"}
+                />
               </div>
               <div className="featured-content">
                 <h3>{project.title}</h3>
