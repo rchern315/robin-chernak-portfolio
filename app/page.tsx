@@ -199,7 +199,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section about-section">
+      <section className="section about-section" id="about">
         <div><div className="eyebrow">ABOUT</div><h2>I like figuring out how the pieces connect.</h2></div>
         <div className="about-copy">
           <p>I am a self-taught software engineer with 12+ years of professional experience, supplemented by college coursework and continued technical training.</p>
