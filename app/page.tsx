@@ -120,12 +120,12 @@ export default function Home() {
           <div className="tech-marquee-track">
             <img
               className="tech-stack-image"
-              src="/mockup/tech-stack.jpg"
+              src="/mockup/tech-stack-marquee.png"
               alt="Tech stack: React, Next.js, TypeScript, JavaScript, Python, PowerShell, SQL, Vercel, Azure DevOps, GitHub, Sitecore SXA, Builder.io, Salsify, Solr, and Supabase"
             />
             <img
               className="tech-stack-image"
-              src="/mockup/tech-stack.jpg"
+              src="/mockup/tech-stack-marquee.png"
               alt=""
               aria-hidden="true"
             />
