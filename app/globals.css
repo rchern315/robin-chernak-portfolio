@@ -93,3 +93,23 @@
     height:135px;
   }
 }
+
+/* Exact tech-stack artwork sizing */
+.tech-stack-image{
+  width:1770px;
+  height:126px;
+  object-fit:contain;
+}
+.tech-stack-image + .tech-stack-image{
+  margin-left:-14px;
+}
+@keyframes tech-scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-1756px)}
+}
+@media(max-width:640px){
+  .tech-stack-image{
+    width:1770px;
+    height:126px;
+  }
+}
