@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+<rect width="900" height="500" fill="#fff"/>
+<rect width="900" height="58" fill="#fff"/>
+<text x="28" y="37" font-family="Arial" font-weight="700" font-size="18" fill="#111827">BlendBase</text>
+<text x="245" y="36" font-family="Arial" font-size="13" fill="#374151">Recipes</text>
+<text x="325" y="36" font-family="Arial" font-size="13" fill="#374151">Create</text>
+<text x="390" y="36" font-family="Arial" font-size="13" fill="#374151">Favorites</text>
+<rect x="786" y="16" width="82" height="28" rx="14" fill="#111827"/>
+<text x="809" y="35" font-family="Arial" font-size="12" fill="#fff">Sign In</text>
+<rect y="58" width="900" height="442" fill="#fdf4f8"/>
+<rect x="470" y="95" width="360" height="320" rx="26" fill="#f3cbdc"/>
+<circle cx="670" cy="245" r="118" fill="#f17ca8"/>
+<circle cx="617" cy="209" r="47" fill="#8b5cf6"/>
+<circle cx="713" cy="198" r="43" fill="#3b82f6"/>
+<circle cx="686" cy="285" r="55" fill="#ec4899"/>
+<path d="M660 120c40-55 110-55 137-7-52-10-93 3-137 7Z" fill="#46a758"/>
+<text x="55" y="150" font-family="Arial" font-size="52" font-weight="800" fill="#111827">Find Your</text>
+<text x="55" y="207" font-family="Arial" font-size="52" font-weight="800" fill="#111827">Perfect Blend</text>
+<text x="55" y="250" font-family="Arial" font-size="20" fill="#4b5563">Discover, create, and share smoothie recipes</text>
+<text x="55" y="277" font-family="Arial" font-size="20" fill="#4b5563">for a healthier, happier you.</text>
+<rect x="55" y="316" width="150" height="46" rx="10" fill="#f45f9a"/>
+<text x="83" y="345" font-family="Arial" font-weight="700" font-size="15" fill="#fff">Create Recipe</text>
+</svg>
