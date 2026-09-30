@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+<rect width="900" height="500" fill="#fff"/>
+<rect width="900" height="58" fill="#fff"/>
+<circle cx="30" cy="29" r="12" fill="#7c3aed"/>
+<text x="50" y="35" font-family="Arial" font-weight="700" font-size="17" fill="#111827">Random Ad Generator</text>
+<text x="320" y="35" font-family="Arial" font-size="13" fill="#4b5563">Create</text>
+<text x="380" y="35" font-family="Arial" font-size="13" fill="#4b5563">Media Library</text>
+<text x="490" y="35" font-family="Arial" font-size="13" fill="#4b5563">Campaigns</text>
+<rect x="785" y="15" width="88" height="30" rx="15" fill="#7c3aed"/>
+<text x="806" y="35" font-family="Arial" font-size="12" fill="#fff">Generate</text>
+<rect y="58" width="900" height="442" fill="#faf7ff"/>
+<text x="58" y="150" font-family="Arial" font-size="45" font-weight="800" fill="#111827">Create High-Performing</text>
+<text x="58" y="199" font-family="Arial" font-size="45" font-weight="800" fill="#111827">Ads with AI</text>
+<text x="58" y="245" font-family="Arial" font-size="19" fill="#4b5563">Generate on-brand ad creative, copy, and variations</text>
+<text x="58" y="271" font-family="Arial" font-size="19" fill="#4b5563">across multiple platforms.</text>
+<rect x="58" y="315" width="150" height="46" rx="10" fill="#7c3aed"/>
+<text x="84" y="344" font-family="Arial" font-weight="700" font-size="15" fill="#fff">Create New Ad</text>
+<rect x="590" y="110" width="110" height="150" rx="12" fill="#2563eb" transform="rotate(-8 645 185)"/>
+<text x="613" y="162" font-family="Arial" font-size="13" font-weight="700" fill="#fff" transform="rotate(-8 645 185)">SUMMER</text>
+<text x="606" y="184" font-family="Arial" font-size="21" font-weight="800" fill="#fff" transform="rotate(-8 645 185)">SALE</text>
+<rect x="710" y="130" width="125" height="145" rx="12" fill="#fbbf24" transform="rotate(6 770 200)"/>
+<text x="730" y="175" font-family="Arial" font-size="13" font-weight="700" fill="#111827" transform="rotate(6 770 200)">HAPPY PETS</text>
+<text x="725" y="206" font-family="Arial" font-size="23" font-weight="800" fill="#111827" transform="rotate(6 770 200)">HAPPIER</text>
+<text x="735" y="234" font-family="Arial" font-size="23" font-weight="800" fill="#111827" transform="rotate(6 770 200)">HOMES</text>
+<rect x="620" y="285" width="150" height="110" rx="12" fill="#ec4899"/>
+<circle cx="665" cy="335" r="28" fill="#fff"/>
+<rect x="702" y="318" width="48" height="10" rx="5" fill="#fff"/>
+<rect x="702" y="340" width="36" height="10" rx="5" fill="#fff"/>
+</svg>
