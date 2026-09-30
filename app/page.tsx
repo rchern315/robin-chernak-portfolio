@@ -87,10 +87,30 @@ export default function Home() {
           </blockquote>
           <div className="hero-rule" />
           <div className="hero-capabilities">
-            <div><b>⌘</b><span>Build<br />Applications</span></div>
-            <div><b>⚙</b><span>Automate<br />Workflows</span></div>
-            <div><b>⌁</b><span>Integrate<br />Systems</span></div>
-            <div><b>AI</b><span>Apply<br />AI</span></div>
+            <div>
+              <b className="capability-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 3h6v3h3v3h3v6h-3v3h-3v3H9v-3H6v-3H3V9h3V6h3V3Z"/><circle cx="12" cy="12" r="3"/><path d="M12 6v3M12 15v3M6 12h3M15 12h3"/></svg>
+              </b>
+              <span>Build<br />Applications</span>
+            </div>
+            <div>
+              <b className="capability-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="6.5" ry="2.5"/><path d="M5.5 5v6c0 1.4 2.9 2.5 6.5 2.5s6.5-1.1 6.5-2.5V5M5.5 11v5c0 1.4 2.9 2.5 6.5 2.5"/><circle cx="17.5" cy="17.5" r="2.5"/><path d="M17.5 13.5v1.2M17.5 20.3v1.2M13.5 17.5h1.2M20.3 17.5h1.2M14.7 14.7l.9.9M19.4 19.4l.9.9M20.3 14.7l-.9.9M15.6 19.4l-.9.9"/></svg>
+              </b>
+              <span>Automate<br />Workflows</span>
+            </div>
+            <div>
+              <b className="capability-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="7" r="2.5"/><circle cx="19" cy="17" r="2.5"/><path d="M7.4 11.2 16.6 7.8M7.4 12.8l9.2 3.4"/></svg>
+              </b>
+              <span>Integrate<br />Systems</span>
+            </div>
+            <div>
+              <b className="capability-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9.5 4.5A3.5 3.5 0 0 0 6 8v.6A3.7 3.7 0 0 0 4 12a3.7 3.7 0 0 0 2 3.4V16a3.5 3.5 0 0 0 3.5 3.5M14.5 4.5A3.5 3.5 0 0 1 18 8v.6a3.7 3.7 0 0 1 2 3.4 3.7 3.7 0 0 1-2 3.4V16a3.5 3.5 0 0 1-3.5 3.5M12 4v16M8.5 8.5c1.1.2 2 .9 2.5 1.8M15.5 8.5c-1.1.2-2 .9-2.5 1.8M8.5 15.5c1.1-.2 2-.9 2.5-1.8M15.5 15.5c-1.1-.2-2-.9-2.5-1.8"/></svg>
+              </b>
+              <span>Apply<br />AI</span>
+            </div>
           </div>
         </aside>
       </section>
