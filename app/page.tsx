@@ -7,14 +7,14 @@ const tech = [
   { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
   { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E" },
   { name: "Python", icon: "https://cdn.simpleicons.org/python/3776AB" },
-  { name: "PowerShell", icon: "https://cdn.simpleicons.org/powershell/5391FE" },
+  { name: "PowerShell", icon: "/tech/powershell.png" },
   { name: "SQL", icon: "https://cdn.simpleicons.org/mysql/4479A1" },
   { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/FFFFFF" },
-  { name: "Azure DevOps", icon: "https://cdn.simpleicons.org/azuredevops/0078D7" },
+  { name: "Azure DevOps", icon: "/tech/azure-devops.png" },
   { name: "GitHub", icon: "https://cdn.simpleicons.org/github/FFFFFF" },
   { name: "Sitecore SXA", icon: "https://cdn.simpleicons.org/sitecore/EB1F1F" },
-  { name: "Builder.io", icon: "https://cdn.simpleicons.org/builderdotio/A97BFF" },
-  { name: "Salsify", icon: "https://cdn.simpleicons.org/salsify/4C2BD9" },
+  { name: "Builder.io", icon: "/tech/builder.png" },
+  { name: "Salsify", icon: "/tech/salsify.png" },
   { name: "Solr", icon: "https://cdn.simpleicons.org/apachesolr/D9411E" },
   { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase/3FCF8E" }
 ];
