@@ -96,10 +96,11 @@ export default function Home() {
       </section>
 
       <section className="tech-strip">
-        <div className="section-label">TECH STACK</div>
-        <div className="tech-grid">
-          {tech.map((item) => <div className="tech-card" key={item}>{item}</div>)}
-        </div>
+        <img
+          className="tech-stack-image"
+          src="/mockup/tech-stack.jpg"
+          alt="Tech stack: React, Next.js, TypeScript, JavaScript, Python, PowerShell, SQL, Vercel, Azure DevOps, GitHub, Sitecore SXA, Builder.io, Salsify, Solr, and Supabase"
+        />
       </section>
 
       <section className="section work-section" id="work">
