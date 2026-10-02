@@ -17,6 +17,104 @@ export type EngineeringNote = {
 
 export const notes: EngineeringNote[] = [
   {
+    slug: "content-analytics-cms-taxonomy-ga4",
+    title: "Connecting Published Content, Marketing Taxonomy, and GA4 Without Turning the CMS Into an Analytics Database",
+    eyebrow: "Full-Stack · Data · CMS Integrations",
+    summary:
+      "A Brand team wanted better insight into its article library. The challenge was connecting what was published, how Marketing classified it, and how it performed without creating another CMS maintenance burden.",
+    date: "October 2026",
+    readingTime: "7 min read",
+    sections: [
+      {
+        heading: "The Brand wanted more insight into its article content",
+        paragraphs: [
+          "The request sounded straightforward: give the Brand a better way to understand its article library and performance.",
+          "Analytics could show page-level traffic and engagement, but that was only part of the story. The Brand also had its own Marketing taxonomy—funnel stage, article type, content pillar, publish date, and other classifications that gave the numbers business context.",
+          "The missing piece was a reliable way to connect those classifications to what was actually published on the website and then connect both to performance data."
+        ]
+      },
+      {
+        heading: "The first approach created a maintenance problem",
+        paragraphs: [
+          "One possible solution was to push the Marketing taxonomy into the CMS and expose those values through the site's analytics implementation.",
+          "Technically, that could work. Operationally, it meant making the CMS responsible for Marketing classifications that would continue changing as articles were added, updated, or retagged.",
+          "It also created tighter coupling between content management and analytics at a time when sites were expected to move between CMS platforms. I wanted to see whether the business problem could be solved without making the CMS own all of that additional data."
+        ]
+      },
+      {
+        heading: "Separate the three sources of truth",
+        paragraphs: [
+          "I built a proof of concept around a simpler idea: let each system or team remain responsible for the data it already owns.",
+          "The CMS answers what content is actually published. The Brand owns the Marketing taxonomy that explains what the content means. GA4 provides the performance data.",
+          "The application normalizes and joins those datasets instead of forcing all three concerns through the CMS."
+        ],
+        code: `CMS
+Published content inventory
+        ↓
+        ┐
+Brand taxonomy ──→ Normalized data layer ──→ Content Analytics
+        ┘
+        ↑
+GA4 performance`
+      },
+      {
+        heading: "The CMS integration stays deliberately small",
+        paragraphs: [
+          "For the Sitecore proof of concept, I created a read-only PowerShell extraction that reads the published web database and sends article inventory to a protected Next.js server-side API endpoint.",
+          "The endpoint authenticates the request, validates and normalizes the records, and stores the inventory in Supabase so it can be joined with the other datasets.",
+          "The integration was validated end to end against real published CMS data. It does not modify content, add Marketing fields, change templates, publish items, or require the CMS to understand the Marketing taxonomy."
+        ],
+        code: `Published Sitecore content
+        ↓
+Read-only PowerShell extraction
+        ↓
+Protected Next.js API
+        ↓
+Supabase normalized inventory`
+      },
+      {
+        heading: "Marketing taxonomy remains Brand-owned",
+        paragraphs: [
+          "The Brand's existing tagging workbook remains the source for classifications such as funnel stage, article type, pillar, and publish date.",
+          "The application validates that data before saving it. That means a taxonomy change is a Marketing data change rather than a CMS development and publishing task.",
+          "URLs are normalized so the Brand taxonomy can be matched to both the published-content inventory and page-level analytics."
+        ]
+      },
+      {
+        heading: "GA4 adds performance, not content existence",
+        paragraphs: [
+          "GA4 supplies metrics such as views, active users, engagement, and key events. The application joins those metrics to the same normalized article paths.",
+          "Keeping the CMS inventory separate also solves an important data-quality problem: an article can be published and receive no tracked activity during a reporting period. A lack of GA4 activity should not be interpreted as proof that the content does not exist.",
+          "With the datasets separated, the application can distinguish published content with no tracked activity from content that is not part of the published inventory."
+        ]
+      },
+      {
+        heading: "Designing for the next CMS instead of the current one",
+        paragraphs: [
+          "I intentionally kept the normalized inventory independent of Sitecore-specific concepts.",
+          "When a site moves to another CMS, the ingestion method can change while the taxonomy, analytics matching, validation, and reporting layers remain the same. A Builder.io implementation, for example, can feed published content through its APIs or webhooks into the same normalized inventory model.",
+          "That turns the CMS integration into a replaceable boundary instead of making the entire analytics solution CMS-specific."
+        ]
+      },
+      {
+        heading: "What the POC demonstrates",
+        bullets: [
+          "Full-stack Next.js application with server-side API endpoints",
+          "Read-only Sitecore content extraction",
+          "Supabase persistence and authentication",
+          "Marketing taxonomy validation and normalization",
+          "GA4 page-level analytics ingestion and matching",
+          "Published-content coverage and data-quality reporting",
+          "CMS-independent architecture designed for future Builder.io integration"
+        ],
+        paragraphs: [
+          "The larger lesson was not about a particular CMS or analytics tool. It was about ownership and boundaries.",
+          "The CMS should be authoritative for published content. Marketing should own Marketing classifications. Analytics should own performance. The application becomes useful because it connects those domains without unnecessarily making one system responsible for all of them."
+        ]
+      }
+    ]
+  },
+  {
     slug: "product-qa-salsify-downstream-platforms",
     title: "Building a Product QA Framework Across Salsify and Downstream Platforms",
     eyebrow: "Automation · Data · Integrations",
