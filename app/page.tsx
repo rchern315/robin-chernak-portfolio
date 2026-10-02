@@ -43,6 +43,14 @@ const projects = [
     live: null,
     github: "https://github.com/rchern315/random-ad-generator",
     kind: "ads"
+  },
+  {
+    title: "Content Analytics Platform",
+    description: "A Brand team wanted better insight into its article library—what was published, how content was classified, and how it performed. I built a full-stack POC that connects CMS inventory, Brand-owned taxonomy, and GA4 performance without adding ongoing tagging maintenance to the CMS.",
+    tags: ["Next.js", "Sitecore", "Supabase", "GA4"],
+    live: "https://central-content-analytics.vercel.app/",
+    github: "https://github.com/rchern315/central-content-analytics",
+    kind: "content-analytics"
   }
 ];
 
@@ -157,7 +165,9 @@ export default function Home() {
                       ? "/projects/blendbase.svg"
                       : project.kind === "intel"
                         ? "/projects/central-intelligence.svg"
-                        : "/projects/random-ad-generator.svg"
+                        : project.kind === "content-analytics"
+                          ? "/projects/content-analytics.svg"
+                          : "/projects/random-ad-generator.svg"
                   }
                   alt={project.title + " project preview"}
                 />
@@ -212,6 +222,14 @@ export default function Home() {
             <a href="#notes">View engineering notes →</a>
           </div>
           <div className="case-list">
+            <article>
+              <div className="case-badge">DATA</div>
+              <div>
+                <h4>Connecting CMS Content, Marketing Taxonomy & GA4</h4>
+                <p>A Brand team wanted more insight into its article content. I designed a lower-maintenance architecture that connects published CMS inventory, Brand-owned taxonomy, and analytics performance outside the CMS.</p>
+                <Link href="/engineering-notes/content-analytics-cms-taxonomy-ga4">Read Case Study →</Link>
+              </div>
+            </article>
             <article>
               <div className="case-badge">QA</div>
               <div>
