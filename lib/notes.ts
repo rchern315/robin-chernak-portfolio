@@ -17,6 +17,87 @@ export type EngineeringNote = {
 
 export const notes: EngineeringNote[] = [
   {
+    "slug": "sitecore-thread-exhaustion-production-reliability",
+    "title": "Root Cause Over Restarts: Resolving Sitecore Thread Exhaustion Across 65 Production Websites",
+    "eyebrow": "Production Engineering · Reliability · Sitecore",
+    "summary": "How I traced recurring SSL failures to unnecessary xConnect retries, isolated a configuration issue across two production nodes, and rolled out a targeted fix without platform-wide downtime.",
+    "date": "October 2026",
+    "readingTime": "9 min read",
+    "sections": [
+      {
+        "heading": "When 65 websites share a reliability problem",
+        "paragraphs": [
+          "In March 2026, I investigated recurring stability issues in a production Sitecore environment supporting approximately 65 brand websites. Two load-balanced Content Delivery (CD) servers, CD01 and CD02, were experiencing resource pressure and partial degradation. Because so many websites shared those application nodes, a configuration problem could affect the entire portfolio.",
+          "The goal was not to make the logs look cleaner or temporarily recover by restarting IIS. I needed to understand which application behavior was consuming resources, identify the underlying cause, and implement a controlled fix without taking the websites offline."
+        ]
+      },
+      {
+        "heading": "Quantifying the failure before changing anything",
+        "paragraphs": [
+          "I started with evidence from the Sitecore application logs. On one day, CD01 recorded 1,829 SSL-related errors and CD02 recorded 1,706—a combined 3,535 errors. Similar failures on both nodes suggested a shared dependency or configuration problem rather than an isolated server interruption.",
+          "An online server is not necessarily a healthy server. Repeated failed outbound requests can consume the resources needed to serve legitimate inbound traffic, even while health checks continue to respond.",
+          "The PowerShell snippet below illustrates the counting approach, not a verbatim copy of my production command. In practice, I would use the specific exception text and same measurement window on both nodes."
+        ],
+        "code": "# Illustrative log check; adapt the path and pattern to the environment.\nGet-ChildItem \"C:\\Sitecore\\Data\\logs\" -Filter \"log.*.txt\" |\n  Select-String -Pattern \"SSL|TLS|secure channel\" |\n  Measure-Object"
+      },
+      {
+        "heading": "Following the dependency rather than chasing symptoms",
+        "paragraphs": [
+          "The recurring exceptions pointed to Sitecore's xConnect/xDB services. I examined endpoint reachability and the TLS/certificate-related failure path, but the bigger architectural question was whether the content delivery nodes needed to make those calls at all.",
+          "xConnect supplies access to Sitecore experience data; xDB enables analytics and tracking capabilities. In this environment, the delivery tier was intended to run without active xDB analytics collection. Nevertheless, the CD nodes still had xDB-related behavior enabled.",
+          "When connection attempts failed, retry behavior associated with Polly caused more outbound attempts. Repeated retries against a dependency that the application does not need can amplify the initial failure by occupying execution resources. In this case, the activity contributed to IIS/.NET thread-pool exhaustion and degraded request handling."
+        ]
+      },
+      {
+        "heading": "The root cause was an unnecessary runtime dependency",
+        "paragraphs": [
+          "The diagnosis was a configuration mismatch: the delivery nodes were trying to use xConnect functionality despite not requiring analytics collection in the intended deployment mode.",
+          "That shifted the fix from treating SSL symptoms to removing unnecessary application behavior. I reviewed Sitecore guidance for deployments without xDB collection and confirmed the configuration direction with Sitecore Support. Rather than increase capacity or rely on recurring IIS restarts, I chose a narrow configuration patch."
+        ]
+      },
+      {
+        "heading": "A targeted Sitecore patch",
+        "paragraphs": [
+          "I created a dedicated patch named ZZZ.DisableXConnect.config to override the xDB and tracking settings on the content delivery nodes. Keeping it as a patch made the intent explicit and the change easier to audit than directly editing core Sitecore configuration.",
+          "The excerpt below shows the two settings at the heart of the change; it is not the complete patch file. The effective merged configuration should always be verified before rollout."
+        ],
+        "code": "<!-- Excerpt of the settings overridden by the patch -->\n<setting name=\"Xdb.Enabled\" value=\"false\" />\n<setting name=\"Xdb.Tracking.Enabled\" value=\"false\" />"
+      },
+      {
+        "heading": "Rolling out the fix without a platform-wide outage",
+        "paragraphs": [
+          "I validated the patch on CD02 first, using direct node testing through hosts-file routing to check the updated application independently. After the application loaded the revised settings, I checked whether the recurring connection failures continued.",
+          "Once CD02 was validated, I rotated CD01 out of active service through the load balancer, applied the same correction, and restored it after verification. Updating one node at a time preserved an available path for traffic and avoided a simultaneous restart of both production nodes.",
+          "The important operational decision was the sequence: establish a baseline, change one node, validate, and only then repeat. A fix is not production-ready merely because the configuration file is syntactically valid."
+        ],
+        "code": "Baseline: CD01 1,829 errors | CD02 1,706 errors\n          ↓\nApply configuration patch to CD02\n          ↓\nValidate CD02 application and error pattern\n          ↓\nRotate CD01 through the load balancer\n          ↓\nApply the same patch and validate CD01\n          ↓\nRestore normal traffic distribution"
+      },
+      {
+        "heading": "Measured outcome and the limits of the comparison",
+        "paragraphs": [
+          "Before the correction, the sampled daily Sitecore logs contained 1,829 SSL errors on CD01 and 1,706 on CD02. Post-patch validation found zero occurrences of the recurring error pattern. The rollout was completed without platform-wide downtime.",
+          "Those figures should be read as an initial daily baseline versus a post-change validation observation, not necessarily identical-duration monitoring windows. The reliable conclusion is that the previously recurring failures stopped after the targeted configuration change.",
+          "Removing the failed xConnect retry activity also removed a source of avoidable thread-pool pressure. It addressed the cause of that pressure rather than simply recycling the application pools to temporarily free resources."
+        ],
+        "code": "                         Before patch      After patch*\nCD01                     1,829              0\nCD02                     1,706              0\nCombined                 3,535              0\n\n* Post-patch validation, not asserted to be an identical\n  time window to the initial one-day baseline."
+      },
+      {
+        "heading": "What this incident reinforced",
+        "bullets": [
+          "Correlate symptoms across nodes before assuming one server is the problem.",
+          "Distinguish an unreachable dependency from an unnecessary dependency.",
+          "Understand retry behavior: resilience mechanisms can increase load when a failure persists.",
+          "Prefer a small, reviewable configuration correction over recurring recovery actions.",
+          "Deploy progressively, keeping a healthy node available throughout the change.",
+          "Measure the outcome and describe the measurement window accurately."
+        ],
+        "paragraphs": [
+          "This is the part of production engineering I enjoy most: following evidence across application, configuration, and infrastructure boundaries until the fix is smaller—and more durable—than the symptoms initially suggested."
+        ]
+      }
+    ]
+  },
+  {
     slug: "content-analytics-cms-taxonomy-ga4",
     title: "Connecting Published Content, Marketing Taxonomy, and GA4 Without Turning the CMS Into an Analytics Database",
     eyebrow: "Full-Stack · Data · CMS Integrations",
