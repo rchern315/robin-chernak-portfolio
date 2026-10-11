@@ -40,7 +40,7 @@ const projects = [
     title: "Random Ad Generator",
     description: "A Next.js ad-creation prototype that generates copy through a server-side AI API and lets users upload creatives, configure placements, preview rotation, and generate embeddable ad snippets. Includes protected API-key handling and browser-based ad-library storage.",
     tags: ["Next.js", "TypeScript", "AI", "Vercel"],
-    live: null,
+    live: "https://adspark-demo.vercel.app",
     github: "https://github.com/rchern315/random-ad-generator",
     kind: "ads"
   },
