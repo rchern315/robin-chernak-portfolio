@@ -22,7 +22,7 @@ const tech = [
 const projects = [
   {
     title: "BlendBase",
-    description: "Full-stack application with authentication, recipe management, ratings, search, and a Supabase backend.",
+    description: "A social smoothie recipe platform where members create, share, discover, rate, and review recipes. Built with React and Supabase, including email/Google authentication, protected user dashboards, image uploads, searchable recipes, and PostgreSQL-backed content.",
     tags: ["React", "Supabase", "Vite", "Vercel"],
     live: "https://blendbase.vercel.app",
     github: "https://github.com/rchern315/blendbase",
@@ -30,7 +30,7 @@ const projects = [
   },
   {
     title: "Central Intelligence",
-    description: "Internal dashboard and automation platform for brand news, data aggregation, analytics, and reporting.",
+    description: "A data intelligence platform combining automated news ingestion, sentiment analysis, and stock market tracking. A scheduled backend pipeline processes external feeds into Supabase, while the React dashboard provides searchable news, sentiment filters, market data, and charts.",
     tags: ["React", "Supabase", "Data Pipeline", "Vercel"],
     live: "https://central-intelligence-ui.vercel.app/",
     github: "https://github.com/rchern315/central-intelligence-ui",
@@ -38,7 +38,7 @@ const projects = [
   },
   {
     title: "Random Ad Generator",
-    description: "AI-enabled application for generating ad creative, managing media assets, and reusable ad workflows.",
+    description: "A Next.js ad-creation prototype that generates copy through a server-side AI API and lets users upload creatives, configure placements, preview rotation, and generate embeddable ad snippets. Includes protected API-key handling and browser-based ad-library storage.",
     tags: ["Next.js", "TypeScript", "AI", "Vercel"],
     live: null,
     github: "https://github.com/rchern315/random-ad-generator",
@@ -46,7 +46,7 @@ const projects = [
   },
   {
     title: "Content Analytics Platform",
-    description: "A Brand team wanted better insight into its article library—what was published, how content was classified, and how it performed. I built a full-stack POC that connects CMS inventory, Brand-owned taxonomy, and GA4 performance without adding ongoing tagging maintenance to the CMS.",
+    description: "A full-stack content intelligence proof of concept connecting published Sitecore articles, marketing taxonomy, and GA4 performance. Built with Next.js and Supabase to validate workbooks, normalize URLs, match datasets, surface data-quality issues, and report on content performance without adding CMS maintenance.",
     tags: ["Next.js", "Sitecore", "Supabase", "GA4"],
     live: "https://central-content-analytics.vercel.app/",
     github: "https://github.com/rchern315/central-content-analytics",
